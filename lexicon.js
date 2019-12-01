@@ -6,7 +6,7 @@ const natural   = require("natural");
 const stemmer   = natural.PorterStemmer;
 const tokenizer = new natural.WordTokenizer();
 
-const config    = require('./config.json');
+const config    = require('./config.json');    
 
 // Variables
 let lines = [], 
@@ -47,7 +47,7 @@ fs.createReadStream(config.dataset).pipe(csv())
             }
         }
     }
-   
+
     // Writing the file
     fs.writeFile("data/lexicon.json", JSON.stringify(lexicon), function(err) {
         if(err) {

@@ -1,11 +1,5 @@
 // Modules
 const fs        = require("fs");
-const csv       = require("csv-parser");
-const natural   = require("natural");
-
-const stemmer   = natural.PorterStemmer;
-const tokenizer = new natural.WordTokenizer();
-
 
 
 // Variables

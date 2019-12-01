@@ -8,6 +8,7 @@ const tokenizer = new natural.WordTokenizer();
 
 const config    = require('./config.json');
 
+        
 // Variables
 let lines = [], 
     words = [],
@@ -62,7 +63,7 @@ fs.createReadStream(config.dataset).pipe(csv())
 
         }
     }
-   
+
 
 
     // Writing the file
@@ -74,3 +75,4 @@ fs.createReadStream(config.dataset).pipe(csv())
     });
 
 });
+
