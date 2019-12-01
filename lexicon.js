@@ -1,3 +1,19 @@
+/*=================================================================================
+    
+    This code uses given dataset, in csv format, to generate the lexicon
+    in the given format:
+
+    Lexicon = {
+        word1: wordID
+        word2: wordID
+        word3: wordID
+        .
+        .
+        .
+    }
+
+=================================================================================*/
+
 // Modules
 const fs        = require("fs");
 const csv       = require("csv-parser");
