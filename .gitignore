@@ -1,3 +1,6 @@
-dataset/
+dataset/articles1.csv
+dataset/articles2.csv
+dataset/articles3.csv
+
 node_modules/
 data/
