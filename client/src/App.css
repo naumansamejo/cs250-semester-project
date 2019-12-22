@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css?family=Courier+Prime:400,400i,700,700i&display=swap');
+
+
+body, html{
+  font-family: "Courier Prime", monospace;
+}
+*{
+  font-family: inherit;
+}
+*,
+*:before,
+*:after{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+body{
+  background: #FFF;
+  /* background: #fafafa; */
+
+  overflow-y: scroll;
+}
+
+
+.search-engine{
+  padding: 100px 0;
+  padding-top: 0px;
+  width: 620px;
+  margin: auto;
+}
+
+
+
+.searchbox-main{
+  border-radius: 20px;
+  overflow: hidden;
+
+  transform: translate3d(0, 250px, 0);
+
+  box-shadow: 0 2px 5px rgba(0,0,0,.08);
+  border: solid 1px rgba(0,0,0,.08);
+
+  transition: transform .3s ease;
+  position: relative;
+  z-index: 99;
+}
+
+.searchbox-main.active{
+  transform: translate3d(0, -80px, 0);
+}
+
+.search-text{
+  width: 100%;
+  /* border-radius: 10px; */
+  border: none;
+  padding: 18px 20px;
+  border: none;
+  outline: none;
+  color: #404040;
+  font-size: 18px;
+}
+.searchbox-main:hover{
+  border: solid 1px rgba(0,0,0,.1);
+  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+}
+
+
+
+
+
+
+.search-results{
+  position: relative;
+}
+
+.search-results > ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  padding: 0 15px;
+  margin-top: -100px;
+}
+.search-results > ul > li{
+  padding: 20px 0;
+  border-bottom: solid 1px rgba(0,0,0,.1);
+}
+.search-results > ul > li:last-of-type{
+  border-bottom-color: transparent;
+}
+
+.search-results > ul > li > a{
+  font-size: 20px;
+  line-height: 1.6em;
+  color: #0000EE;
+  text-decoration: none;
+}
+.search-results > ul > li > p{
+  line-height: 1.6em;
+  font-size: 14px;
+  color: #404040;
+  margin: 0;
+  margin-top: 6px;
+}
+
+
+.search-results > ul > li > a:hover{
+  text-decoration: underline;
+}
+
+
+
+.search-results{
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s .3s ease;
+}
+.search-results.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
+.searchbox-main:after{
+  content: " ";
+  position: absolute;
+  height: 3px;
+  background: #00F;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  animation: loading 3s infinite linear;
+  display: none;
+}
+.searchbox-main.loading:after{
+  display: block;
+}
+
+
+
+@keyframes loading{
+  0%{
+    transform: translate3d(0,0,0) scale3d(0,1,1);
+    transform-origin: 0 0;
+  }
+  40%{
+    transform: translate3d(0,0,0) scale3d(.4,1,1);
+    transform-origin: 0 0;
+  }
+  80%{
+    transform: translate3d(60%,0,0) scale3d(.4,1,1);
+    transform-origin: 0 0;
+  }
+  100%{
+    transform: translate3d(100%,0,0) scale3d(0,1,1);
+    transform-origin: 0 0;
+  }
+}
+
+
+
+
+.logo-main{
+  font-size: 110px;
+  font-weight: 400;
+  text-align: center;
+  transform: translateY(190px);
+  user-select: none;
+  position: relative;
+}
+.logo-main > span{
+  margin: 0 0px;
+}
+.logo-main:after{
+  content: 'dsa project';
+  color: #4285f4;
+  position: absolute;
+  bottom: 10px;
+  right: 120px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.logo-main > span:nth-of-type(1){
+  color: #4285f4;
+}
+
+.logo-main > span:nth-of-type(2){
+  color: #ea4335;
+}
+
+.logo-main > span:nth-of-type(3){
+  color: #fbbc03;
+}
+
+.logo-main > span:nth-of-type(4){
+  color: #4285f4;
+}
+.logo-main > span:nth-of-type(5){
+  color: #33a853;
+}
+
+
+
+
+
+
+.search-engine.active .button-main,
+.search-engine.active .logo-main{
+  opacity: 0;
+}
+
+
+
+
+.button-main{
+  transform: translateY(275px);
+  text-align: center;
+}
+.button-main > button{
+  padding: 13px 40px;
+  background: #FAFAFA;
+  color: rgba(0,0,0,.8);
+  border: solid 1px rgba(0,0,0,.08);
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+.button-main > button:hover{
+  border: solid 1px rgba(0,0,0,.1);
+  box-shadow: 0 3px 5px rgba(0,0,0,.1);
+  background: #F5F5F5;
+}
+.button-main > button:active{
+  background: #F0F0F0;
+}
+
+
+
+
+
+
+.search-ico > img{
+  height: 34px;
+}
+.search-ico{
+  position: absolute;
+  opacity: .2;
+  z-index: 99;
+  top: 50%;
+  margin-top: -17px;
+  right: 15px;
+  width: auto;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+.search-ico:hover{
+  opacity: .4;
+}

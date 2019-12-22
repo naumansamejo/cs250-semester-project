@@ -1,5 +1,4 @@
 /*=================================================================================
-    
     This code uses given dataset, in csv format, to generate the lexicon
     in the given format:
 
@@ -11,7 +10,6 @@
         .
         .
     }
-
 =================================================================================*/
 
 // Modules
@@ -43,7 +41,7 @@ fs.createReadStream(config.dataset).pipe(csv())
 
     // Tokenizing all the words from dataset
     for(c=0; c<lines.length; c++){
-        
+
         // Current row from CSV
         line = lines[c];
 
