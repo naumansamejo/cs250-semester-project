@@ -17,9 +17,6 @@ let SearchResults = function({appState, handleAppState}){
         if(appState.query ){
             getResults(appState.query);
             
-
-
-           
         }
     }, [appState.query]);
 

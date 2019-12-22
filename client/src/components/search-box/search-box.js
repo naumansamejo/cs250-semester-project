@@ -27,7 +27,7 @@ let SearchBox = function({appState, handleAppState}){
                     <input tabIndex="1" autoFocus ref={(q) => _query = q  } type="text" className="search-text" placeholder={`search, please...`} />
                     
                     <button type="submit" className="search-ico" >
-                        <img src={search_ico} />
+                        <img src={search_ico} alt=""/>
                     </button>
 
 
