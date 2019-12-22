@@ -1,3 +1,17 @@
+/*=================================================================================
+    This code uses given dataset, in csv format, to generate the lexicon
+    in the given format:
+
+    Lexicon = {
+        word1: wordID
+        word2: wordID
+        word3: wordID
+        .
+        .
+        .
+    }
+=================================================================================*/
+
 // Modules
 const fs        = require("fs");
 const csv       = require("csv-parser");
@@ -6,7 +20,7 @@ const natural   = require("natural");
 const stemmer   = natural.PorterStemmer;
 const tokenizer = new natural.WordTokenizer();
 
-const config    = require('./config.json');
+const config    = require('./config.json');    
 
 // Variables
 let lines = [], 
@@ -27,7 +41,7 @@ fs.createReadStream(config.dataset).pipe(csv())
 
     // Tokenizing all the words from dataset
     for(c=0; c<lines.length; c++){
-        
+
         // Current row from CSV
         line = lines[c];
 
@@ -47,7 +61,7 @@ fs.createReadStream(config.dataset).pipe(csv())
             }
         }
     }
-   
+
     // Writing the file
     fs.writeFile("data/lexicon.json", JSON.stringify(lexicon), function(err) {
         if(err) {
