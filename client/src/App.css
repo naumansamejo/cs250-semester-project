@@ -175,7 +175,7 @@ body{
   margin: 0 0px;
 }
 .logo-main:after{
-  content: 'dsa project';
+  content: 'DSA Project';
   color: #4285f4;
   position: absolute;
   bottom: 10px;
