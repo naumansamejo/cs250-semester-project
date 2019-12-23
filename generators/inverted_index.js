@@ -15,7 +15,7 @@ const fs        = require("graceful-fs");
 // Variables
 const config = require("../config.json");
 
-let createInvertedIndex = new Promise((resolve, reject) => {
+let createInvertedIndex = function(resolve){
     let forward_index = require('../data/forward_index.json'),     //Reading forward index JSON file.
         inverted_index = {};
     let added = {};
@@ -50,12 +50,14 @@ let createInvertedIndex = new Promise((resolve, reject) => {
             continue;
         }
         fs.writeFile(`data/inverted_index/${key}.json`, JSON.stringify(result[key], null, 4), function(err) {
-            if(!err) {
-                resolve();
-            }else{
-                reject();
+            if(err){
+                return;
             }
         });
     }
-});
+
+    resolve();
+}
+
+
 module.exports = createInvertedIndex;
