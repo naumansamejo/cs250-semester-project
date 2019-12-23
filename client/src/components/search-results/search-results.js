@@ -11,10 +11,7 @@ let SearchResults = function({appState, handleAppState}){
         async function getResults(q){
             handleAppState({...appState, loading: true});
             let res = await axios.get(`/query/${q}`);
-            
-            setResults( res.data || [] );
-            
-
+            setResults( res.data || [] );            
             handleAppState({...appState, loading: false});
         }
         if(appState.query ){
@@ -51,7 +48,7 @@ let SearchResults = function({appState, handleAppState}){
                         )
                         
                         :
-                        
+
                         (
                             appState.loading ?
                             ""

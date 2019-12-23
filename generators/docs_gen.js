@@ -27,12 +27,7 @@ let generateDocs = function(resolve){
             });
             
 
-            doc.content = doc.content.substring(0, 140) + "...";
-            fs.writeFile(`data/docs_meta/${doc.id}.json`, JSON.stringify(doc), function(err) {
-                if(err) {
-                    return;
-                }
-            });
+            
 
         }
     });

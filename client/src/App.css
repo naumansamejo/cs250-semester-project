@@ -248,6 +248,9 @@ body{
 
 .search-ico > img{
   height: 34px;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 .search-ico{
   position: absolute;
@@ -262,6 +265,7 @@ body{
   padding: 0;
   cursor: pointer;
   outline: none;
+  user-select: none;
 }
 .search-ico:hover{
   opacity: .4;

@@ -36,9 +36,14 @@ let getQuery = function(query){
             
             if(word){
                 let newDocs = wordDocs(word);
+                
+                // union of both document arrays
+                // resultDocs = [...new Set([...resultDocs, ...newDocs])];
+
+                // resultDocs = resultDocs.concat( resultDocs.filter(x => !newDocs.includes(x)) );
 
                 if(newDocs.length && resultDocs.length){
-                    resultDocs = resultDocs.filter(x => newDocs.includes(x));
+                    resultDocs = resultDocs.filter(x => !newDocs.includes(x));
                 }else{
                     resultDocs = newDocs;
                 }
@@ -67,7 +72,8 @@ let getQuery = function(query){
 
     // Fetching the content
     docArray = docArray.map(function(item){
-        let doc = JSON.parse(fs.readFileSync(`./data/docs_meta/${item}.json`, 'utf8'));
+        let doc = JSON.parse(fs.readFileSync(`./data/docs/${item}.json`, 'utf8'));
+        doc.content = doc.content.substring(0, 140) + "...";
         return doc;
     });
 
