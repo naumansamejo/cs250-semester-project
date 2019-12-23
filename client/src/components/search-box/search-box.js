@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import search_ico from '../../search.svg';
 
 
@@ -12,6 +12,12 @@ let SearchBox = function({appState, handleAppState}){
         handleAppState({...appState, active: true, query: _query.value});
     }
 
+
+    useEffect(()=>{
+        
+        _query.value = appState.query;
+
+    }, []);
 
     return (
         <div>

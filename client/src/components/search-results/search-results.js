@@ -1,19 +1,22 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 
 
 let SearchResults = function({appState, handleAppState}){
     const [results, setResults] = useState(null);
 
-    async function getResults(q){
-        handleAppState({...appState, loading: true});
-        let res = await axios.get(`/query/${q}`);
-        
-        setResults( res.data || [] );
-        handleAppState({...appState, loading: false});
-    }
-
+    
     useEffect(()=>{
+        async function getResults(q){
+            handleAppState({...appState, loading: true});
+            let res = await axios.get(`/query/${q}`);
+            
+            setResults( res.data || [] );
+            
+
+            handleAppState({...appState, loading: false});
+        }
         if(appState.query ){
             getResults(appState.query);
             
@@ -25,14 +28,21 @@ let SearchResults = function({appState, handleAppState}){
     return (
         <div className={`search-results ${appState.active ? "active" : ""}`} >
 
+            {
+                results ?
+                    <p className="time-taken" >{results.results.length} results, {results.time} seconds</p>
+                : "" 
+            }
+ 
             <ul>
                 {
                     results ? 
-                    results.map(r=> 
+                    results.results.map(r=> 
+                        
                         <li key={r.id}> 
-                            <a href={`/page/${r.id}`} >{r.title}</a> 
+                            <Link to={`/page/${r.id}`} >{r.title}</Link> 
                             <p>
-                                { r.content.substring(0, 140) + "..." }
+                                { r.content }
                             </p>
                         </li> 
                     )

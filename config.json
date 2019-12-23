@@ -1,4 +1,4 @@
 {
-    "dataset" : "./dataset/data1.csv",
+    "dataset" : "./dataset/articles2.csv",
     "keys_per_file" : 100
 }

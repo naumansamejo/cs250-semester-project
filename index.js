@@ -1,12 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-
 const getQuery = require('./query');
 
-
 app.use(bodyParser.json());
-
+app.use('/files', express.static('data/docs/'));
 
 app.get("/query/:query", (req, res) => (
   
