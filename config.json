@@ -1,4 +1,5 @@
 {
     "dataset" : "./dataset/data.csv",
-    "keys_per_file" : 100
+    "keys_per_file" : 100,
+    "result_limit" : 40
 }

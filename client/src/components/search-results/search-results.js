@@ -30,33 +30,41 @@ let SearchResults = function({appState, handleAppState}){
 
             {
                 results ?
-                    <p className="time-taken" >{results.results.length} results, {results.time} seconds</p>
+                    <p className="time-taken" >{results.count} results, {results.time} seconds</p>
                 : "" 
             }
  
             <ul>
                 {
                     results ? 
-                    results.results.map(r=> 
                         
-                        <li key={r.id}> 
-                            <Link to={`/page/${r.id}`} >{r.title}</Link> 
-                            <p>
-                                { r.content }
-                            </p>
-                        </li> 
-                    )
+                        results.count ?
+
+                        results.results.map(r=> 
+                            
+                            <li key={r.id}> 
+                                <Link to={`/page/${r.id}`} >{r.title}</Link> 
+                                <p>
+                                    { r.content }
+                                </p>
+                            </li> 
+                        )
+                        
+                        :
+                        
+                        (
+                            appState.loading ?
+                            ""
+                            :
+                            <li>
+                                <p>No results found</p>    
+                            </li>
+    
+                        )
                     :
 
-                    (
-                        appState.loading ?
-                        ""
-                        :
-                        <li>
-                            <p>No results found</p>    
-                        </li>
+                    ""
 
-                    )
                 }
             </ul>
         </div>

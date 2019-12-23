@@ -60,6 +60,7 @@ body{
   outline: none;
   color: #404040;
   font-size: 18px;
+  padding-right: 65px;
 }
 .searchbox-main:hover{
   border: solid 1px rgba(0,0,0,.1);
