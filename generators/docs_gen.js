@@ -3,7 +3,7 @@ const fs        = require("graceful-fs");
 const csv       = require("csv-parser");
 const config    = require('../config.json');
 
-let generateDocs = new Promise((resolve, reject)=>{
+let generateDocs = function(resolve){
     // Variables
     let lines = [];
     // Reading the file and parsing data from CSV
@@ -21,13 +21,23 @@ let generateDocs = new Promise((resolve, reject)=>{
             };
             // Writing the file
             fs.writeFile(`data/docs/${doc.id}.json`, JSON.stringify(doc), function(err) {
-                if(!err) {
-                    resolve();
-                }else{
-                    reject();
+                if(err) {
+                    return;
                 }
             });
+            
+
+            doc.content = doc.content.substring(0, 140) + "...";
+            fs.writeFile(`data/docs_meta/${doc.id}.json`, JSON.stringify(doc), function(err) {
+                if(err) {
+                    return;
+                }
+            });
+
         }
     });
-});
+
+
+    resolve();
+}
 module.exports = generateDocs;
